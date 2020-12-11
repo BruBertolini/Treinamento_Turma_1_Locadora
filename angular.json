@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "locadora"
+  "defaultProject": "locadora",
+  "cli": {
+    "analytics": false
+  }
 }

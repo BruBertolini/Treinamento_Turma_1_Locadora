@@ -1,0 +1,47 @@
+<p>cadastro-filmes works!</p>
+
+<form [formGroup]="formularioLista">
+  
+    <div>
+      <label for="titulo">TITULO</label>
+      <input type="text" name="titulo" formControlName="titulo"/>
+      <span
+      *ngIf="
+      formularioLista.get('titulo').touched &&
+      formularioLista.get('titulo').errors?.required
+      "
+    >
+      Informação Obrigatória</span
+    >
+    </div>
+
+    <div>
+      <label for="diretor">DIRETOR</label>
+      <input type="text" name="diretor" formControlName="diretor"/>
+      <span
+      *ngIf="
+      formularioLista.get('diretor').touched &&
+      formularioLista.get('diretor').errors?.required
+      "
+    >
+      Informação Obrigatória</span
+    >
+    </div>
+
+    <div>
+      <label for="anoLancamento">ANO LANÇAMENTO</label>
+      <input type="number" name="anoLancamento" formControlName="anoLancamento" />
+      <span
+      *ngIf="
+      formularioLista.get('anoLancamento').touched &&
+      formularioLista.get('anoLancamento').errors?.required
+      "
+    >
+      Informação Obrigatória</span
+    >
+    </div>
+
+    <div>
+        <button (click) = "salvar()" [disabled]="formularioLista.invalid" type="submit"> Salvar </button>
+    </div>
+</form>

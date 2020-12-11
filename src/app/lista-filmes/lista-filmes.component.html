@@ -1,0 +1,9 @@
+<title>Filmes Disponíveis</title>
+<div *ngFor="let filme of listaFilmes">
+    <span [ngStyle]="{'font-weight' : filme.anoLancamento < 2005 ? 'bold' : 'normal'}">
+           <br> Filme: {{ filme.titulo }}
+           <br> Direção: {{ filme.diretor }}
+           <br> Ano: {{filme.anoLancamento}}
+    </span>
+
+</div>
