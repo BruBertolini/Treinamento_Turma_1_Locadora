@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RegistroFilmeService } from '../registro-filme.service';
 
 @Component({
   selector: 'app-cadastro-filmes',
@@ -10,7 +11,7 @@ export class CadastroFilmesComponent implements OnInit {
 
   formularioLista: FormGroup
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private registroFilmeService: RegistroFilmeService) { }
 
   ngOnInit(): void {
     this.formularioLista = this.formBuilder.group({
@@ -21,7 +22,12 @@ export class CadastroFilmesComponent implements OnInit {
   }
 
   salvar(){
-    console.log("Salvou");
+    this.registroFilmeService.salvarFilme(this.formularioLista.getRawValue())
+    .subscribe(resultado => {
+      alert('Salvou com sucesso! :D');
+      this.formularioLista.reset();
+    },
+    )
   }
 
 }

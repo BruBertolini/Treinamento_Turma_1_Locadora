@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Filme } from '../model/filme';
+import { RegistroFilmeService } from '../registro-filme.service';
 
 @Component({
   selector: 'app-lista-filmes',
@@ -15,10 +16,20 @@ export class ListaFilmesComponent implements OnInit {
     new Filme('Tropa de Elite','José Padilha',2007),
   ];
 
-  constructor() {
+  constructor( private registroFilme: RegistroFilmeService ) {
   }
 
   ngOnInit(): void {
+    this.listarFilmes()
   }
 
+  listarFilmes() {
+    this.registroFilme.listarFilmes().subscribe(
+      (resultado:any) => {
+        this.listaFilmes = resultado.list
+      }
+    );
+  }
+
+  
 }

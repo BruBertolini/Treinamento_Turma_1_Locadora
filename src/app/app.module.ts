@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ListaFilmesComponent } from './lista-filmes/lista-filmes.component';
 import { CadastroFilmesComponent } from './cadastro-filmes/cadastro-filmes.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegistroFilmeService } from './registro-filme.service';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -16,9 +18,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [RegistroFilmeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
